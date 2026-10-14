@@ -30,6 +30,7 @@ public class Nodo {
         public void setSiguiente(Nodos siguiente) {
             this.siguiente = siguiente;
         }
+        
     }
     
     
