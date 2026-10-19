@@ -10,5 +10,10 @@ public class main {
         lista.imprimir();
         System.out.println();
         lista.imprimirInv();  
+        lista.InsertarEn(0, 25);
+        lista.imprimir();
+        System.out.println();
+        lista.EliminarEn(3);
+        lista.imprimir();
     }
 }

@@ -35,7 +35,7 @@ public class Listasimple {
     }
     //imprimir en orden inverso
     public void imprimirInv(){
-
+        
         for (int i = longitud() - 1; i >= 0; i--) { // esta parte de aqui se mueve desde el ultimo nodo hasta el primero
         Nodos temp = inicio;
         for (int j = 0; j < i; j++) {// y esto de aqui imprime el valor de los nodos dada la posicion i 
