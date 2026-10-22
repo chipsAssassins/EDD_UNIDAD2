@@ -1,5 +1,5 @@
-package Eva2_3_Queue;
-import Eva2_3_Queue.Nodo.Nodos;;
+package Eva2_4_Queue;
+import Eva2_4_Queue.Nodo.Nodos;;
 
 public class MyQueue {
     private Nodos inicio;
