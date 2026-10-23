@@ -146,6 +146,8 @@ public class MyStack{
                 inicio = inicio.getSiguiente();
                 if (inicio == null) { // Si la lista queda vacía, actualizar fin
                     fin = null;
+                } else {
+                    inicio.setAnterior(null); // el nuevo primero ya no tiene anterior
                 }
             } else {
                 Nodos temp = inicio;
@@ -156,23 +158,35 @@ public class MyStack{
                 
                 if (temp.getSiguiente() == null) { // Si se borró el último nodo, actualizar fin
                     fin = temp;
+                } else {
+                    temp.getSiguiente().setAnterior(temp); // reconectar el anterior
                 }
             }
         }   
-        //Esto es para queue
-        //Public void push
+        //Esto es para stack (LIFO): se agrega y se saca por el mismo extremo (el fin = tope)
+        //Public void push Agrega un valor en el tope
         public void push (int valor){
             agregar (valor);
         }
-        //public int peek Lee el valor del primer nodo sin eliminarlo
+        //public int peek Lee el valor del tope (último nodo) sin eliminarlo
         public int peek (){
-            return valorEn(1);
+            if (fin == null) {
+                throw new java.util.EmptyStackException();
+            }
+            return fin.getValor();
         }
-        //public int pop Elimina el primer nodo y regresa su valor
+        //public int pop Elimina el tope (último nodo) y regresa su valor
         public int pop () {
-        
-        int valor = peek(); // Obtener el valor del primer nodo
-        borrarEn(0); // Eliminar el primer nodo
-        return valor; // Devolver el valor eliminado
-    }
+            if (fin == null) {
+                throw new java.util.EmptyStackException();
+            }
+            int valor = fin.getValor(); // Obtener el valor del tope
+            fin = fin.getAnterior();    // El tope ahora es el nodo anterior
+            if (fin == null) {          // Si la pila queda vacía, actualizar inicio
+                inicio = null;
+            } else {
+                fin.setSiguiente(null); // Cortar el enlace al nodo eliminado
+            }
+            return valor; // Devolver el valor eliminado
+        }
 }
